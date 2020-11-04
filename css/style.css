@@ -1,0 +1,1219 @@
+/*
+1-common styles
+2-general styles
+3-sections
+    3.0-header
+    3.1-home section
+    3.2-about section
+    3.3-portfolio section
+    3.4-offer section
+    3.5-prices section
+    3.6-team section
+    3.7-blog page
+    3.8-contact section
+    3.9-footer section
+
+*/
+
+
+
+/* 1-common style */
+    /*
+        -overlay  
+        -container    
+        -opacity hover
+        -section header
+        -section padding
+        -hover effect 1(left to right)
+        -hover effect 2(top to bottom)
+
+    */
+
+
+
+
+
+.overlay
+{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background-color:rgba(0,0,0,0.6); /*دى درجه الشفافيه علشان انا عايز لون اسود شفاف فا ال ار جى بى هى ال0 نقطه0نقطه0نقطه و ال حرف الايه ده هو 0نقطه7*/
+
+}
+
+.hover-opacity
+{
+    transition:opacity 1s; /*لازم اعمل الكلام ده علشان انا لو حطات الكلام ده تحت هيستخدم على الصفحه كلها و يقوم بتحكم بعدد الثوانى بتات الشفافيه*/
+
+
+}
+
+.hover-opacity:hover /*يقوم بعمل افيكت على الزر*/
+{
+    opacity:0.7 ;
+}
+
+.ltr-effect ,
+.tb-effect
+{
+    position: relative;;
+}
+
+.ltr-effect:after , 
+.tb-effect:after
+{
+    position:absolute;
+    content:"";
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background:rgba(3, 3, 3, 0.685);
+    z-index:-1;
+}
+
+.tb-effect:after
+{
+    transition:height 0.5s;
+    height:0;
+
+}
+
+.ltr-effect:after
+{
+    width:0;   
+    transition:width 0.5s ; 
+}
+
+.ltr-effect:hover:after
+{
+    width:100%;
+}
+
+
+
+
+.tb-effect:hover:after
+{
+    height:100%;  
+}
+
+
+
+
+    /*2-general css styles*/
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box ;
+}
+
+.container  /*طبعا الكونتنر اتعمل علشان مفيش حاجه تلزق فى الحواف*/
+{
+    width:80%;
+    margin:auto;
+    
+}
+
+body
+{
+    font-family: 'Varela Round', sans-serif;
+
+}
+
+
+.clear
+{
+    clear:both;
+}
+
+/*.header-content
+{
+    overflow:;
+}*/
+
+h1 , h2 , h3 , h4 , h5 , h6
+{
+    font-family:montserrat,sans-serif;
+}
+
+button
+{
+    font-family:'Varela Round', sans-serif;
+}
+
+/*.pd-y
+{
+    padding:120px;
+    
+}*/
+
+
+.section-header
+{
+    text-align:center;
+    margin-bottom:20px;
+    margin:120px;
+}
+
+.section-header .section-title
+{
+    font-size:35px;
+    text-transform:capitalize;
+    margin-bottom:10px;
+}
+
+.section-header .line
+{
+    width:70px;
+    height:5px;
+    display:block;
+    background-color:rgb(26, 95, 224);
+    margin:0 auto 70px auto;
+    
+}
+
+/*3-sections*/
+/*3.0-header*/
+.header
+{
+position:fixed;
+width:100%;
+z-index:10;
+background:rgba(0,0,0,0.5);
+}
+
+.header .logo
+{
+    width:40%;
+    float:left;
+
+}
+
+.header .logo img
+{
+    width:80px;
+    margin-top:20px; /*المرجين توب دى بتخلى اعرف اطلع الكلام لفوق بس و كمان فى مرجين بوتون و الخ الخ*/
+}
+
+.header .nav
+{
+    width:60%;
+    float:left;
+    list-style:none;   /* طريقه تخليك تشيل النقط لما اعمل اللست*/
+    text-align:right;
+    
+}
+
+.header .nav > li
+{
+    display:inline-block;  /*طريقه دى عملتها علشان اشيل بلوكات و احولها الى انلين علشان يبقوا جنب بعض مش تحت بعض*/
+    text-align: right;
+}
+
+.header .nav > li > a
+{
+    color:white;
+    text-decoration:none; /* دى بعملها علشان اشيل الخط اللى تحت الكلام*/
+    padding:30px 15px;
+    display:block; /*انا هنا عملت بولوك علشان كل ال اى جوها ايه وحده فانا بقول لكل ايه بولوك الحته دى فى الدقيقه 42:53*/
+    font-size:15px;
+}
+
+.header .nav > li > a:active:after , .header .nav > li > a:after
+{
+    
+    content:"";
+    display:block;
+    margin:2px;   
+    height:2px;
+    background-color:rgb(26, 95, 224);
+    transition:0.5s;
+} 
+
+.header .nav > li > a:active:after
+{
+    width:100%;
+}
+
+.header .nav > li > a:after
+{
+    width:0;
+}
+
+.header .nav > li > a:hover::after
+{
+    width:100%;
+}
+
+.dropdown
+{
+    position:relative;
+}
+
+.dropdown-menu
+{
+    position:absolute;
+    width:120px;
+    text-align:center;
+    left:-50%;
+    top:70%;
+    background-color:rgb(26, 95, 224);
+    height:30px;
+    border-radius:50%;
+    opacity:0;           /* علشان اعرف اخفى الدروب */
+    visibility: hidden; /*علشان اعرف اخفى الدروب*/
+}
+
+.dropdown:hover .dropdown-menu /* لازم اكتب هافر علشان يكون معنها ان 
+                                                                          ان انا لما اجلى على الدروب يدى امر ان يبان الدروب*/
+{
+    opacity:1;
+    visibility:visible; /*طبعا الكلام ده لازم يكون عكس اللى فوق */
+    transition: opacity 1s , visibility 1s; /* طبعا الكلام ده لازم يكون عكس اللى فوق */
+}
+
+ .text-p
+{
+    text-decoration:none;
+    color:white;
+    position:absolute;
+    top:10%;
+    left:20%;
+}
+
+/*3.1-home section*/
+
+
+.home .title
+{
+    color:white;
+    font-size:50px;
+    text-transform:uppercase ; /*يقوم بعمل جميع الحروف كبيره*/
+
+
+}
+
+.home
+{
+    height:100vh;
+    background-image:url(../images/background/background1.webp);
+    background-size:cover; /* اناعملت دى علشان اخلى الصوره تبقى قد المكان عندى بظبت*/
+    position:relative;
+}
+
+.home .home-content
+{
+
+    position:absolute; /* ده بيخلينى اعرف احرك الباك جروند بتاع الكلام*/
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center; /*ده بيخلينى اعرف احت تعريف الكلام فى النص باظبط*/
+}
+
+.home .home-desc
+{
+    margin: 10px 0;
+    color:white;
+    letter-spacing:2px; /* تستخدم لبعد الاحروف عن بعضها*/
+    line-height:1.5;  /*تستخدم لبعد الاسطر عن بعضها*/
+}
+
+.home .btn
+{
+    min-width:160px;
+    padding:10px 0;
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.home .btn-start
+{
+    margin-right:10px;
+    background-color:white;
+}
+
+.home .btn-learn
+{
+    background-color:rgb(26, 95, 224);
+    color:white;
+}
+
+
+/*3.2-about section*/
+
+.about-content
+{
+    overflow:hideen;
+}
+
+.about-item
+{
+    width:30%;
+    float:left;
+    text-align:center;
+    border:0.5px solid #00000029;
+    padding: 20px 20px;
+}
+
+
+.about-item:hover .about-item-title
+{
+    color:white;
+}
+
+.about-item.mg
+{
+    margin:0 5%;
+}
+
+
+.about-item .icon
+{
+    color:rgb(26, 95, 224);
+    margin-bottom:10px;
+}
+
+.about-item-title
+{
+    text-transform:capitalize;
+    margin-bottom:10px;
+
+}
+
+
+.about-item-desc
+{
+    line-height:1.5;
+    margin-bottom:10px;
+    color: #000000;
+}
+
+.about-item-link
+{
+    color:rgb(26, 95, 224);
+    text-transform:capitalize ;
+}
+
+.Portfolio
+{
+    background:#f9f9f9;
+}
+
+.Portfolio-content
+{
+    overflow:hidden;
+    
+    
+}
+
+.Portfolio-item
+{
+    width:30%;
+    float:left;
+    margin-bottom:40px;
+    position:relative;
+    padding:20px;
+}
+
+.Portfolio-item .layer-content
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    opacity:0;
+    visibility: hidden;
+    transition:0.5s ;
+
+}
+
+.Portfolio-item:hover .layer-content
+{
+    opacity:1;
+    visibility:visible;
+}
+
+.layer-content .layer-info
+{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width:80%;
+    text-align:center;
+}
+
+.layer-content-title
+{
+    font-size:20px;
+    color:white;
+    margin-bottom:10px;
+    position:relative;
+    top:10px;
+    transition:top 0.5s , opacity 0.5s;
+    transition-delay:0.2s;
+    opacity:0;
+    
+}
+
+.layer-content .category
+{
+    color:rgb(26, 95, 224);
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:5px;
+    position:relative;
+    top:10px;
+    transition: top 0.5s , opacity 0.5s ;
+    transition-delay:0.3s;
+    opacity:0;
+
+}
+
+.layer-content a
+{
+    color:white;
+    position:relative;
+    top:10px;
+    transition: top 0.5s , opacity 0.5s;
+    transition-delay:0.3s;
+    opacity:0;
+}
+
+.Portfolio-item:hover .layer-content-title,
+.Portfolio-item:hover .layer-content a,
+.Portfolio-item:hover .layer-content .category
+{
+    top:0;
+    opacity:1;
+    
+   
+}
+
+.layer-content a i
+{
+    line-height:40px ;
+    display:inline-block;
+    width:40px;
+    height:40px;
+    background-color:rgb(26, 95, 224);
+}
+
+.Portfolio-item.mg
+{
+    margin:0 5%;   
+}
+
+.Portfolio-item img
+{
+    width:100%;
+    
+}
+
+/*3.4-offer section*/
+
+/*.offer
+{
+
+}*/
+
+.offer-content
+{
+    overflow:hidden;
+}
+
+.offer-item
+{
+    width:30%;
+    float:left;
+    margin-bottom:20px ;
+    border:1px solid #00000029;
+    padding:30px 15px 30px 70px;
+    position: relative;
+}
+
+.offer-item.mg
+{
+    margin:0 5%;
+}
+
+.offer-item .icon
+{
+    position: absolute;
+    left:15px;
+    top:35px;
+    color:rgb(26, 95, 224);
+}
+
+.offer-item-title
+{
+    margin-bottom:15px;
+    text-transform: capitalize;
+    transition: color 0.3s;
+
+}
+
+.offer-item-desc
+{
+    margin-bottom:15px;
+    text-transform: capitalize;
+    color:#999;
+    line-height:1.6;
+
+}
+
+.offer-item:hover .offer-item-title
+{
+    color:white;
+}
+
+/* service section*/
+
+.service
+{
+    background-color:#f9f9f9;
+    margin-top:120px;
+}
+
+.service-list
+{
+    list-style:none;
+}
+
+.service-list li
+{
+    margin-bottom:10px;
+    color:#999;
+
+
+}
+
+.service-list li i
+{
+    border:1px solid rgb(26, 95, 224);
+    color:rgb(26, 95, 224);
+    margin-right:10px;
+    padding: 7px;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    margin:2px 0;
+    margin-right: 10px;
+
+}
+
+
+.service-item
+{
+    width:50%;
+    float:left;
+}
+
+.Service-item .section-header
+{
+    text-align:left;
+}
+
+.Service-item .section-header .line
+{
+    margin:0 0 70px 0;
+}
+
+.Service-item-desc
+{
+    padding-right:50px;
+    color:#999;
+    line-height:1.4;
+    font-size:17px;
+    margin-bottom:20px;
+}
+
+.Service-item-img img
+{
+    width:100%;
+}
+
+
+.Service-item .Service-item-img
+{
+    margin-top:120px;
+}
+
+.Service-bollets
+{
+    list-style:none;
+    text-align:center;
+}
+
+.services-bollets li
+{
+    width:10px;
+    height:10px;
+    display:inline-block;
+    background-color:rgb(26, 95, 224);
+}
+
+/*numbers section*/
+
+.numbers
+{
+    position:relative;
+    background-image:url("../images/background/background2.webp");
+    height:300px;
+    margin-top:130px ;
+    background-size:cover;
+    background-attachment:fixed;    /*تقوم بعمل ثابات للصوره او الباك جروند عندما اعمل اسكورول*/
+}
+
+.numbers-items
+{
+    overflow:hidden;    
+    padding:120px 0;
+}
+
+.number-item
+{
+    width:25%;
+    float:left;
+    text-align:center;
+    
+}
+
+.number-item .icon
+{
+    color:rgb(26, 95, 224);
+    margin-bottom:15px;
+}
+
+.number-item-title
+{
+    font-weight:bold;
+    font-size:30px;
+    color:white;
+    
+}
+
+.number-item-text
+{
+    color:white;
+    text-transform: capitalize;
+}
+
+.pricing
+{
+
+}
+
+.pricing-plans
+{
+    overflow:hidden;
+}
+
+.pricing-item
+{
+    width:30%;
+    float:left;
+    padding:20px 15px;
+    border:2px solid #e8e8ee; 
+    text-align:center;
+}
+
+.pricing-item.mg
+{
+    margin:0 5%;
+}
+
+.pricing-item-text
+{
+    text-transform: uppercase;
+    font-size:17px;    
+    color: #999;
+    transition:color 0.5s;
+}
+
+.pricing-item-permonth
+{
+    border-radius:50%;
+    width:130px;
+    height:130px;
+    padding:30px 0;
+    margin:15px auto;
+    border:2px solid rgb(26, 95, 224);
+    transition:color 0.5s;
+}
+
+.pricing-item-permonth .doller
+{
+    font-size:50px ;
+}
+
+.pricing-item-permonth .month
+{
+    font-size:15px;
+    text-transform: uppercase;
+    font-weight:bold;
+}
+
+.pricing-list
+{
+    list-style:none;
+}
+
+.pricing-list li
+{
+    margin:20px;
+    color:#999;
+    text-transform: capitalize;
+    font-size:20px;
+}
+
+.pricing-item-purchase
+{
+    border:2px solid rgb(26, 95, 224) ;
+    color:rgb(26, 95, 224);
+    font-size:20px;
+    padding:20px ;
+    margin:15px auto 0 auto;
+    background:none;
+    border-radius:50px;
+        
+}
+
+.pricing-item:hover .pricing-item-permonth
+{
+    color:white;
+}
+
+.pricing-item:hover .pricing-item-text
+{
+    color:rgb(26, 95, 224);
+}
+ 
+/*testimonail section*/
+
+.testimonail
+{
+    position:relative;
+    margin-top: 50%;
+    background-image:url(../images/background/background3.webp);
+    background-attachment:fixed ;
+    height:400px;
+}
+
+.testimonail-content
+{
+    overflow:hidden;
+    padding:120px 0;
+    width:80%;
+    margin:auto;
+}
+
+.testimonail-item
+{
+    width:50%;
+    float:left;
+    color:white;
+    
+}
+
+.blue
+{
+    color:rgb(26, 95, 224);
+}
+
+.testimonail-item .testimonail-toplayer
+{
+    padding:10px 2px 40px 100px;
+    position:relative;
+}
+
+.testimonail-item .testimonail-toplayer img
+{
+    position:absolute;
+    left:10px;
+    top:10px;
+    border-radius:50%;
+}
+
+.testimonail-item .testimonail-toplayer h3
+{
+    margin-bottom:5px;
+}
+
+.testimonail-desc
+{
+    line-height:1.5;
+    font-size:17px;
+}
+
+/*team section*/
+
+.team-content
+{
+    overflow:hidden;
+
+}
+
+.team-item
+{
+    width:30%;
+    float:left;
+    background:#e8e8e8;
+    padding:40px 20px;
+    text-align: center;
+}
+
+.team-item.mg
+{
+    margin:0 5%;
+}
+
+.team-item .team-img
+{
+    width:90%;
+    margin:auto;
+    position:relative;
+}
+
+.team-overlay
+{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background: rgba(0,0,0,0.5);
+    opacity:0;
+    visibility:hidden;
+}
+
+.team-overlay a
+{
+    display:block;
+    width:40px;
+    height:40px;
+    background:rgb(26, 95, 224);
+    color:white;
+    margin-left:auto;
+}
+
+.team-overlay a i
+{
+    line-height:40px;
+}
+
+.team-item .team-img img
+{
+    width:100%;
+}
+
+.team-info .team-info-title
+{
+    color:#222;
+    margin:10px 0;
+    transition: color 0.5s;
+}
+
+.team-info .team-info-text
+{
+    color:#999;
+    text-transform: uppercase;
+    font-size:14px;
+    transition: color 0.5s;
+}
+
+.team-item:hover .team-overlay
+{
+    visibility:visible;
+    opacity:1;
+}
+
+.team-item.tb-effect
+{
+    z-index:1;
+}
+
+.team-item:hover .team-info-title
+{
+    color:white;
+}
+
+.team-item:hover .team-info-text
+{
+    color:rgb(26, 95, 224);
+}
+ 
+
+/*blog page*/
+
+
+.blog
+{
+    padding:120px 0 400px 0;
+}
+
+.blog-item
+{
+    width:30%;
+    float:left;
+}
+
+.blog-item.mg
+{
+    margin:0 5%;
+}
+
+
+.blog-list
+{
+    margin:15px;
+    
+}
+
+.blog-list li
+{
+    display:inline-block;
+    list-style: none;
+    margin-top:15px;
+    margin:0 6px;
+
+}
+
+.blog-list li i
+{
+    color:rgb(26, 95, 224);
+    margin-right:3px;
+}
+
+.blog-text
+{
+    margin:15px 0;
+    color:black;
+}
+
+.blog-desc
+{
+    color:#999;
+    margin-bottom:15px;
+}
+
+.blog-button
+{
+    border:none;
+    color:rgb(26, 95, 224);
+}
+
+.blog-item img
+{
+    width:100%;
+}
+
+/*3.8-contact section*/
+
+.contact-item
+{
+    margin-left: 23px;
+
+}
+
+.contact
+{
+    padding: 120px 0 ;
+    
+}
+
+
+
+.contact-list
+{
+    width:100%;
+    text-align:center;
+    
+    
+}
+
+.contact-list li
+{
+    list-style:none;
+    display:inline-block;
+}
+
+.list-mg
+{
+    margin:0 30%;
+    
+
+}
+
+.contact-list li i
+{
+    color:rgb(26, 95, 224);
+}
+
+.contact-list li h3
+{
+    margin:15px 0;
+}
+
+.contact-list li p
+{
+    color:#999;
+}
+
+.contact-from
+{
+    width:40%;
+    margin:0 auto;
+    /*margin-top:50px;*/
+    text-align:center;
+}
+
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box ;
+}
+
+
+.contact-item-input.input1
+{
+    width:49%;
+    float:left;
+    height:40px;
+    font-size:17px;
+    border:none;
+}
+
+.contact-item-input.input2
+{
+    width:49%;
+    float:right;
+    height:40px;
+    font-size:17px;
+    border:none;
+
+}
+
+.contact-item-subject
+{
+    width:100%;
+    height:40px;
+    margin:20px 0;
+    display:inline-block;
+    font-size:17px;
+    border:none;
+}
+
+.contact-item-msg
+{
+    margin-top:0;
+    margin-bottom:0;
+    height:95px;
+    font-size:17px;
+    border:none;
+    margin-right:250px;
+    width:100%;
+    
+
+}
+
+.contact-btn
+{
+    border:none;
+    color:white;
+    background-color:rgb(26, 95, 224) ;
+    padding:15px 60px;
+    font-size:17px;
+    border-radius:4px;
+    margin-top:20px ;
+    cursor: pointer;
+}
+
+.contact-item-input.input1 , .contact-item-input.input2 ,
+.contact-item-subject , .contact-item-msg
+{
+    border-bottom: 3px solid #eee;
+}
+
+/*footer section*/
+
+
+
+.footer-section
+{
+    background-color:#1c1d21;
+    padding:60px 0;
+    text-align:center;
+    margin-top:190px;
+
+
+}
+
+.footer-links
+{
+    list-style:none;
+}
+
+.footer-links li 
+{
+    display:inline-block;
+    margin:20px 10px;
+}
+
+.footer-links li a
+{
+    display:block;
+    width:50px;
+    height:50px;
+    background-color:rgb(26, 95, 224) ;
+    color:white;
+    margin:5px 0;
+}
+
+
+
+.footer-links li a i
+{
+    line-height: 50px;
+    font-size:30px;
+}
+
+.copyright
+{
+    color:#999;
+}
+
+.copyright .blu
+{
+    color:rgb(26, 95, 224);
+}
+
+.footer-links li a:hover
+{
+    transition:  color 0.5s ;
+    color:rgb(26, 95, 224);
+    background-color: white;
+  
+}
+
+.footer-section:hover .footer-links li a
+{
+    border-radius: 50%;    
+    transition: border-radius 0.5s;
+
+}
+
+
+
+
